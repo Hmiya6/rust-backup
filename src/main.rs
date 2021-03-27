@@ -1,12 +1,21 @@
+
+// modules -----------------------------
 mod app;
 pub use app::App;
 
 pub mod config;
-// pub use config::Config;
+
+mod backup;
+pub use backup::Backup;
+// -------------------------------------
+
+use std::path::Path;
 
 
+// main --------------------------------
 fn main() {
-    let app = App::new(std::path::Path::new("test_config.toml")).unwrap();
+    let mut app = App::new(Path::new("rust-backup-config.toml")).unwrap();
     app.run();
-    println!("hello world")
+    println!("See you next time");
 }
+// -------------------------------------

@@ -11,6 +11,7 @@ enum FileType {
 }
 */
 
+// config ----------------------------------
 #[derive(Deserialize)]
 pub struct Config {
     src: String,
@@ -37,8 +38,15 @@ impl Config {
             file_name: String::from("backup"),
         }
     }
-}
 
+    pub fn get_config(&self) -> (&str, &str) {
+        (&self.src, &self.dst)
+    }
+}
+// ----------------------------------------
+
+
+// tests ----------------------------------
 #[cfg(test)]
 mod tests {
     use super::*;
